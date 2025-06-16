@@ -6,7 +6,7 @@ node_modules/
 # Expo
 .expo/
 dist/
-web-build/
+# web-build/ - bỏ comment dòng này nếu muốn loại bỏ web-build khỏi Git sau này
 expo-env.d.ts
 
 # Native
