@@ -28,6 +28,19 @@ yarn-error.*
 
 # macOS
 .DS_Store
+
+# Specific to this project
+application-*.tar.gz
+
+# Local env files
+.env*.local
+
+# IDE
+.vscode/
+.idea/
+
+# Installation files
+*.exe
 *.pem
 
 # local env files

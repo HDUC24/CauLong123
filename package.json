@@ -6,16 +6,35 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "build:web": "expo export:web",
+    "serve:web": "npx serve web-build"
   },
   "dependencies": {
+    "@expo/metro-runtime": "~5.0.4",
+    "@expo/webpack-config": "^19.0.1",
+    "@react-native-async-storage/async-storage": "^2.1.2",
+    "@react-native-community/datetimepicker": "^8.3.0",
+    "@react-navigation/bottom-tabs": "^7.3.15",
+    "@react-navigation/native": "^7.1.11",
+    "@react-navigation/native-stack": "^7.3.16",
+    "copy-webpack-plugin": "^13.0.0",
+    "date-fns": "^4.1.0",
     "expo": "~53.0.11",
     "expo-status-bar": "~2.2.3",
+    "expo-updates": "~0.28.14",
     "react": "19.0.0",
-    "react-native": "0.79.3"
+    "react-dom": "^19.0.0",
+    "react-native": "0.79.3",
+    "react-native-safe-area-context": "^5.4.0",
+    "react-native-screens": "^4.11.1",
+    "react-native-web": "^0.20.0",
+    "workbox-webpack-plugin": "^7.3.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.20.0",
+    "@types/react": "~19.0.10",
+    "typescript": "~5.8.3"
   },
   "private": true
 }
