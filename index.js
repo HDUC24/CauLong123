@@ -1,11 +1,12 @@
-import { registerRootComponent } from 'expo';
-import App from './App';
+import { registerRootComponent } from "expo";
+import App from "./App";
 
 // Đăng ký service worker cho PWA nếu đang chạy trong web
-if (typeof document !== 'undefined') {
+if (typeof document !== "undefined") {
   // Dynamic import cho web environment
-  import('./web/register-service-worker')
-    .catch(err => console.error('Error loading service worker:', err));
+  import("./web/register-service-worker").catch((err) =>
+    console.error("Error loading service worker:", err)
+  );
 }
 
 // registerRootComponent calls AppRegistry.registerComponent('main', () => App);

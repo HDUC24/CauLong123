@@ -150,7 +150,7 @@ const HomeScreen = () => {
           <View style={styles.modalHeader}>
             <Text style={styles.modalTitle}>
               {" "}
-              <Text>Lọc buổi đánh cầu</Text>
+              <Text>Lọc buổi đánh cầu</Text> git add . git commit -m "Mô tả thay
             </Text>
             <TouchableOpacity onPress={() => setIsFilterModalVisible(false)}>
               <Ionicons name="close" size={24} color="#333" />
