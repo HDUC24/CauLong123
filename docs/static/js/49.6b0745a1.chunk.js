@@ -1,0 +1,2 @@
+(self.webpackChunkweb=self.webpackChunkweb||[]).push([[49],{4049:()=>{"serviceWorker"in navigator&&window.addEventListener("load",(()=>{navigator.serviceWorker.register("/service-worker.js").then((e=>{console.log("SW registered: ",e)})).catch((e=>{console.error("SW registration failed: ",e)}))}))}}]);
+//# sourceMappingURL=49.6b0745a1.chunk.js.map
