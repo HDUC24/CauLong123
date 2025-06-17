@@ -5,8 +5,8 @@ import {
   StyleSheet,
   TouchableOpacity,
   FlatList,
-  Alert,
 } from "react-native";
+import { CrossPlatformAlert as Alert } from "../utils";
 import { getPlayers, deletePlayer } from "../services/storageService";
 import { Player } from "../models/types";
 import { useNavigation } from "@react-navigation/native";

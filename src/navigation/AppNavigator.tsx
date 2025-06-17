@@ -1,7 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Ionicons from "@expo/vector-icons/Ionicons";
+import Icon from "../components/Icon";
 
 import HomeScreen from "../screens/HomeScreen";
 import SessionDetailScreen from "../screens/SessionDetailScreen";
@@ -41,9 +41,8 @@ const MainTabNavigator = () => {
         tabBarStyle: {
           paddingBottom: 5,
           height: 60,
-        },
-        tabBarIcon: ({ focused, color, size }) => {
-          let iconName: keyof typeof Ionicons.glyphMap;
+        },        tabBarIcon: ({ focused, color, size }) => {
+          let iconName: string;
 
           if (route.name === "Home") {
             iconName = focused ? "home" : "home-outline";
@@ -54,7 +53,7 @@ const MainTabNavigator = () => {
           } else {
             iconName = "help-outline";
           }
-          return <Ionicons name={iconName} size={size} color={color} />;
+          return <Icon name={iconName} size={size} color={color} />;
         },
       })}
     >

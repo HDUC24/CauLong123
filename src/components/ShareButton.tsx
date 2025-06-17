@@ -1,9 +1,10 @@
 import React from "react";
-import { TouchableOpacity, Text, StyleSheet, Share, View } from "react-native";
-import Ionicons from "@expo/vector-icons/Ionicons";
+import { TouchableOpacity, Text, StyleSheet, View } from "react-native";
 import { Session } from "../models/types";
 import { formatCurrency } from "../utils/expenseUtils";
+import { CrossPlatformShare } from "../utils";
 import { format } from "date-fns";
+import Icon from "./Icon";
 
 type ShareButtonProps = {
   session: Session;
@@ -75,10 +76,8 @@ const ShareButton = ({ session, calculatedExpenses }: ShareButtonProps) => {
       sortedPlayers.forEach((player) => {
         const amount = calculatedExpenses.splitByPlayer[player.id] || 0;
         message += `• ${player.name}: ${formatCurrency(amount)}\n`;
-      });
-
-      // Chia sẻ tin nhắn
-      await Share.share({
+      });      // Chia sẻ tin nhắn
+      await CrossPlatformShare.share({
         message,
         title: `Chi phí đánh cầu lông ngày ${date}`,
       });
@@ -104,10 +103,9 @@ const ShareButton = ({ session, calculatedExpenses }: ShareButtonProps) => {
         return "Chi phí";
     }
   };
-
   return (
     <TouchableOpacity style={styles.shareButton} onPress={handleShare}>
-      <Ionicons name="share-social-outline" size={20} color="white" />
+      <Icon name="share-social-outline" size={20} color="white" />
       <Text style={styles.shareText}>Chia sẻ chi phí</Text>
     </TouchableOpacity>
   );

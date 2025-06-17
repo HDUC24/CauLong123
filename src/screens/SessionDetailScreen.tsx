@@ -4,10 +4,10 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  Alert,
   ScrollView,
   ActivityIndicator,
 } from "react-native";
+import { CrossPlatformAlert as Alert } from "../utils";
 import { useNavigation, useRoute, RouteProp } from "@react-navigation/native";
 import { format } from "date-fns";
 import { vi } from "date-fns/locale";

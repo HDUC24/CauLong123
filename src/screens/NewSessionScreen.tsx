@@ -6,15 +6,15 @@ import {
   TextInput,
   TouchableOpacity,
   ScrollView,
-  Alert,
 } from "react-native";
+import { CrossPlatformAlert as Alert } from "../utils";
 import { useNavigation } from "@react-navigation/native";
-import DateTimePicker from "@react-native-community/datetimepicker";
 import { format } from "date-fns";
 import { vi } from "date-fns/locale";
 import { getPlayers, addPlayer, addSession } from "../services/storageService";
 import { ExpenseType, Player, Expense } from "../models/types";
 import { generateId, formatCurrency } from "../utils/expenseUtils";
+import WebDateTimePicker from "../components/web/WebDateTimePicker";
 
 const NewSessionScreen = () => {
   const navigation = useNavigation<any>();
@@ -330,9 +330,8 @@ const NewSessionScreen = () => {
             <Text style={styles.dateText}>
               {format(date, "dd/MM/yyyy", { locale: vi })}
             </Text>
-          </TouchableOpacity>
-          {showDatePicker && (
-            <DateTimePicker
+          </TouchableOpacity>          {showDatePicker && (
+            <WebDateTimePicker
               value={date}
               mode="date"
               display="default"
@@ -351,9 +350,8 @@ const NewSessionScreen = () => {
                 ? format(endTime, "HH:mm", { locale: vi })
                 : "Chưa chọn thời gian"}
             </Text>
-          </TouchableOpacity>
-          {showEndTimePicker && (
-            <DateTimePicker
+          </TouchableOpacity>          {showEndTimePicker && (
+            <WebDateTimePicker
               value={endTime || new Date()}
               mode="time"
               display="default"

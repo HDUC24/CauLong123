@@ -5,8 +5,8 @@ import {
   StyleSheet,
   TextInput,
   TouchableOpacity,
-  Alert,
 } from "react-native";
+import { CrossPlatformAlert as Alert } from "../utils";
 import { useNavigation } from "@react-navigation/native";
 import { addPlayer } from "../services/storageService";
 

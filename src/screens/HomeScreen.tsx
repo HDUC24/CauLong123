@@ -15,7 +15,7 @@ import { vi } from "date-fns/locale";
 import { getSessions } from "../services/storageService";
 import { Session } from "../models/types";
 import { formatCurrency } from "../utils/expenseUtils";
-import Ionicons from "@expo/vector-icons/Ionicons";
+import Icon from "../components/Icon";
 
 const HomeScreen = () => {
   const navigation = useNavigation<any>();
@@ -151,9 +151,8 @@ const HomeScreen = () => {
             <Text style={styles.modalTitle}>
               {" "}
               <Text>Lọc buổi đánh cầu</Text> git add . git commit -m "Mô tả thay
-            </Text>
-            <TouchableOpacity onPress={() => setIsFilterModalVisible(false)}>
-              <Ionicons name="close" size={24} color="#333" />
+            </Text>            <TouchableOpacity onPress={() => setIsFilterModalVisible(false)}>
+              <Icon name="close" size={24} color="#333" />
             </TouchableOpacity>
           </View>
 
@@ -349,8 +348,7 @@ const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.searchContainer}>
-        <View style={styles.searchBar}>
-          <Ionicons
+        <View style={styles.searchBar}>          <Icon
             name="search"
             size={20}
             color="#666"
@@ -362,18 +360,15 @@ const HomeScreen = () => {
             value={searchText}
             onChangeText={setSearchText}
           />
-          {searchText ? (
-            <TouchableOpacity onPress={() => setSearchText("")}>
-              <Ionicons name="close-circle" size={18} color="#666" />
+          {searchText ? (            <TouchableOpacity onPress={() => setSearchText("")}>
+              <Icon name="close-circle" size={18} color="#666" />
             </TouchableOpacity>
           ) : null}
-        </View>
-
-        <TouchableOpacity
+        </View>        <TouchableOpacity
           style={styles.filterButton}
           onPress={() => setIsFilterModalVisible(true)}
         >
-          <Ionicons name="options" size={20} color="#4caf50" />
+          <Icon name="options" size={20} color="#4caf50" />
         </TouchableOpacity>
       </View>
 

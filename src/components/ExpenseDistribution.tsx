@@ -10,7 +10,8 @@ import {
   Alert,
 } from "react-native";
 import { formatCurrency } from "../utils/expenseUtils";
-import Ionicons from "@expo/vector-icons/Ionicons";
+import { CrossPlatformAlert } from "../utils";
+import Icon from "./Icon";
 
 type ExpenseDistributionProps = {
   totalAmount: number;
@@ -71,9 +72,8 @@ const ExpenseDistribution = ({
       <View style={styles.modalOverlay}>
         <View style={styles.modalContainer}>
           <View style={styles.modalHeader}>
-            <Text style={styles.modalTitle}>Theo dõi thanh toán</Text>
-            <TouchableOpacity onPress={() => setShowPaymentModal(false)}>
-              <Ionicons name="close" size={24} color="#333" />
+            <Text style={styles.modalTitle}>Theo dõi thanh toán</Text>            <TouchableOpacity onPress={() => setShowPaymentModal(false)}>
+              <Icon name="close" size={24} color="#333" />
             </TouchableOpacity>
           </View>
 
@@ -167,9 +167,8 @@ const ExpenseDistribution = ({
               style={styles.barRow}
               onPress={() => togglePaymentStatus(player.id)}
             >
-              <View style={styles.nameContainer}>
-                {isPaid && (
-                  <Ionicons
+              <View style={styles.nameContainer}>                {isPaid && (
+                  <Icon
                     name="checkmark-circle"
                     size={16}
                     color="#4caf50"

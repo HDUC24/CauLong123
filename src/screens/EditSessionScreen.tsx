@@ -6,13 +6,13 @@ import {
   TextInput,
   TouchableOpacity,
   ScrollView,
-  Alert,
   ActivityIndicator,
 } from "react-native";
+import { CrossPlatformAlert as Alert } from "../utils";
 import { useNavigation, useRoute, RouteProp } from "@react-navigation/native";
-import DateTimePicker from "@react-native-community/datetimepicker";
 import { format } from "date-fns";
 import { vi } from "date-fns/locale";
+import WebDateTimePicker from "../components/web/WebDateTimePicker";
 import {
   getPlayers,
   getSessions,
@@ -384,9 +384,8 @@ const EditSessionScreen = () => {
           <Text style={styles.dateText}>
             {format(date, "EEEE, dd/MM/yyyy", { locale: vi })}
           </Text>
-        </TouchableOpacity>
-        {showDatePicker && (
-          <DateTimePicker
+        </TouchableOpacity>        {showDatePicker && (
+          <WebDateTimePicker
             value={date}
             mode="date"
             display="default"
@@ -420,9 +419,8 @@ const EditSessionScreen = () => {
               {endTime ? format(endTime, "HH:mm") : "Chọn giờ kết thúc"}
             </Text>
           </TouchableOpacity>
-        </View>
-        {showEndTimePicker && (
-          <DateTimePicker
+        </View>        {showEndTimePicker && (
+          <WebDateTimePicker
             value={endTime || new Date()}
             mode="time"
             display="default"
