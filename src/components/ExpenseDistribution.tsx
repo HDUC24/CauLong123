@@ -72,7 +72,8 @@ const ExpenseDistribution = ({
       <View style={styles.modalOverlay}>
         <View style={styles.modalContainer}>
           <View style={styles.modalHeader}>
-            <Text style={styles.modalTitle}>Theo dõi thanh toán</Text>            <TouchableOpacity onPress={() => setShowPaymentModal(false)}>
+            <Text style={styles.modalTitle}>Theo dõi thanh toán</Text>{" "}
+            <TouchableOpacity onPress={() => setShowPaymentModal(false)}>
               <Icon name="close" size={24} color="#333" />
             </TouchableOpacity>
           </View>
@@ -167,7 +168,9 @@ const ExpenseDistribution = ({
               style={styles.barRow}
               onPress={() => togglePaymentStatus(player.id)}
             >
-              <View style={styles.nameContainer}>                {isPaid && (
+              <View style={styles.nameContainer}>
+                {" "}
+                {isPaid && (
                   <Icon
                     name="checkmark-circle"
                     size={16}

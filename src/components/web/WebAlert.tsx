@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -6,13 +6,13 @@ import {
   StyleSheet,
   TouchableOpacity,
   Platform,
-  Alert as RNAlert
-} from 'react-native';
+  Alert as RNAlert,
+} from "react-native";
 
 interface AlertButton {
   text: string;
   onPress?: () => void;
-  style?: 'default' | 'cancel' | 'destructive';
+  style?: "default" | "cancel" | "destructive";
 }
 
 interface WebAlertProps {
@@ -27,8 +27,8 @@ const WebAlert: React.FC<WebAlertProps> = ({
   visible,
   title,
   message,
-  buttons = [{ text: 'OK' }],
-  onDismiss
+  buttons = [{ text: "OK" }],
+  onDismiss,
 }) => {
   if (!visible) return null;
 
@@ -50,19 +50,19 @@ const WebAlert: React.FC<WebAlertProps> = ({
                 key={index}
                 style={[
                   styles.button,
-                  button.style === 'destructive' && styles.destructiveButton,
-                  button.style === 'cancel' && styles.cancelButton
+                  button.style === "destructive" && styles.destructiveButton,
+                  button.style === "cancel" && styles.cancelButton,
                 ]}
                 onPress={() => {
                   if (button.onPress) button.onPress();
                   onDismiss();
                 }}
               >
-                <Text 
+                <Text
                   style={[
                     styles.buttonText,
-                    button.style === 'destructive' && styles.destructiveText,
-                    button.style === 'cancel' && styles.cancelText
+                    button.style === "destructive" && styles.destructiveText,
+                    button.style === "cancel" && styles.cancelText,
                   ]}
                 >
                   {button.text}
@@ -84,15 +84,15 @@ export const WebAlertManager = {
     buttons?: AlertButton[],
     options?: { cancelable?: boolean; onDismiss?: () => void }
   ) => {
-    if (Platform.OS !== 'web') {
+    if (Platform.OS !== "web") {
       // Use React Native's Alert on non-web platforms
       RNAlert.alert(title, message, buttons, options);
       return;
     }
 
     // For web platform
-    const alertContainer = document.createElement('div');
-    alertContainer.id = 'web-alert-container';
+    const alertContainer = document.createElement("div");
+    alertContainer.id = "web-alert-container";
     document.body.appendChild(alertContainer);
 
     const destroyAlert = () => {
@@ -110,9 +110,11 @@ export const WebAlertManager = {
     }
 
     // For simple confirmations
-    if (buttons.length === 2 && 
-        buttons[0].style === 'cancel' && 
-        buttons[1].style === 'destructive') {
+    if (
+      buttons.length === 2 &&
+      buttons[0].style === "cancel" &&
+      buttons[1].style === "destructive"
+    ) {
       if (window.confirm(message ? `${title}\n\n${message}` : title)) {
         if (buttons[1].onPress) buttons[1].onPress();
       } else {
@@ -126,72 +128,72 @@ export const WebAlertManager = {
     window.alert(message ? `${title}\n\n${message}` : title);
     if (buttons[0] && buttons[0].onPress) buttons[0].onPress();
     destroyAlert();
-  }
+  },
 };
 
 const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)'
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
   },
   modalView: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
     borderRadius: 10,
     padding: 20,
-    width: '80%',
+    width: "80%",
     maxWidth: 400,
-    alignItems: 'center',
-    shadowColor: '#000',
+    alignItems: "center",
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 2
+      height: 2,
     },
     shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 5
+    elevation: 5,
   },
   modalTitle: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 10,
-    textAlign: 'center'
+    textAlign: "center",
   },
   modalMessage: {
     fontSize: 16,
     marginBottom: 20,
-    textAlign: 'center'
+    textAlign: "center",
   },
   buttonsContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    width: '100%'
+    flexDirection: "row",
+    justifyContent: "space-around",
+    width: "100%",
   },
   button: {
     padding: 10,
     borderRadius: 5,
     minWidth: 80,
-    backgroundColor: '#2196F3',
-    margin: 5
+    backgroundColor: "#2196F3",
+    margin: 5,
   },
   destructiveButton: {
-    backgroundColor: '#f44336'
+    backgroundColor: "#f44336",
   },
   cancelButton: {
-    backgroundColor: '#9e9e9e'
+    backgroundColor: "#9e9e9e",
   },
   buttonText: {
-    color: 'white',
-    fontWeight: 'bold',
-    textAlign: 'center'
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center",
   },
   destructiveText: {
-    color: 'white'
+    color: "white",
   },
   cancelText: {
-    color: 'white'
-  }
+    color: "white",
+  },
 });
 
 export default WebAlert;

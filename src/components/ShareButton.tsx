@@ -76,7 +76,7 @@ const ShareButton = ({ session, calculatedExpenses }: ShareButtonProps) => {
       sortedPlayers.forEach((player) => {
         const amount = calculatedExpenses.splitByPlayer[player.id] || 0;
         message += `• ${player.name}: ${formatCurrency(amount)}\n`;
-      });      // Chia sẻ tin nhắn
+      }); // Chia sẻ tin nhắn
       await CrossPlatformShare.share({
         message,
         title: `Chi phí đánh cầu lông ngày ${date}`,

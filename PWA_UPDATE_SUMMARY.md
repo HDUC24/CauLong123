@@ -5,10 +5,12 @@ Dựa trên yêu cầu kiểm tra và thay thế các chức năng không hoạt
 ## 1. Đã hoàn thành
 
 ### DateTimePicker
+
 - ✅ Đã thay thế DateTimePicker trong EditSessionScreen bằng WebDateTimePicker
 - ✅ WebDateTimePicker sử dụng input type="date" và type="time" trên web, và vẫn sử dụng DateTimePicker trên thiết bị di động
 
 ### Hệ thống Alert
+
 - ✅ Đã tạo CrossPlatformAlert để thay thế Alert.alert
 - ✅ Cập nhật tất cả các màn hình để sử dụng CrossPlatformAlert
   - NewSessionScreen.tsx
@@ -18,11 +20,13 @@ Dựa trên yêu cầu kiểm tra và thay thế các chức năng không hoạt
   - SessionDetailScreen.tsx
 
 ### Chức năng chia sẻ
+
 - ✅ Tạo CrossPlatformShare để thay thế Share API trên React Native
 - ✅ Trên web sử dụng Web Share API nếu có, hoặc sao chép vào clipboard
 - ✅ Cập nhật ShareButton để sử dụng CrossPlatformShare
 
 ### Hệ thống Icon
+
 - ✅ Tạo WebIcon để thay thế Ionicons không hiển thị được trên web
 - ✅ Tạo component Icon thống nhất hoạt động trên cả web và mobile
 - ✅ Cập nhật tất cả các màn hình và component sử dụng icon
@@ -32,11 +36,13 @@ Dựa trên yêu cầu kiểm tra và thay thế các chức năng không hoạt
   - ExpenseDistribution.tsx
 
 ### Tiện ích phát hiện nền tảng
+
 - ✅ Tạo platformUtils.ts để dễ dàng kiểm tra nền tảng và điều chỉnh tính năng
 
 ## 2. Hướng dẫn sử dụng
 
 ### Sử dụng WebDateTimePicker
+
 ```tsx
 import WebDateTimePicker from "../components/web/WebDateTimePicker";
 
@@ -46,10 +52,11 @@ import WebDateTimePicker from "../components/web/WebDateTimePicker";
   mode="date"
   display="default"
   onChange={onChangeDate}
-/>
+/>;
 ```
 
 ### Sử dụng CrossPlatformAlert
+
 ```tsx
 import { CrossPlatformAlert as Alert } from "../utils";
 
@@ -58,6 +65,7 @@ Alert.alert("Tiêu đề", "Nội dung thông báo");
 ```
 
 ### Sử dụng CrossPlatformShare
+
 ```tsx
 import { CrossPlatformShare } from "../utils";
 

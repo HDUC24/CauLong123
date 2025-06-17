@@ -9,11 +9,12 @@ This directory contains web-specific components and utilities that are used to r
 A replacement for Expo's Ionicons that works on web. It uses emoji or Unicode characters as a fallback for icon display on web.
 
 Usage:
+
 ```tsx
 import Icon from "../components/Icon"; // Use the unified component
 
 // In your component
-<Icon name="home" size={24} color="#4caf50" />
+<Icon name="home" size={24} color="#4caf50" />;
 ```
 
 ### WebDateTimePicker
@@ -21,6 +22,7 @@ import Icon from "../components/Icon"; // Use the unified component
 A replacement for `@react-native-community/datetimepicker` that works on web. On native platforms, it uses the native date picker, while on web it uses HTML input elements.
 
 Usage:
+
 ```tsx
 import WebDateTimePicker from "../components/web/WebDateTimePicker";
 
@@ -30,7 +32,7 @@ import WebDateTimePicker from "../components/web/WebDateTimePicker";
   mode="date"
   display="default"
   onChange={onChangeDate}
-/>
+/>;
 ```
 
 ### WebAlert
@@ -54,14 +56,10 @@ A utility that provides Alert.alert functionality on both web and native platfor
 ```tsx
 import { CrossPlatformAlert } from "../utils";
 
-CrossPlatformAlert.alert(
-  "Title",
-  "Message",
-  [
-    { text: "Cancel", style: "cancel" },
-    { text: "OK", onPress: () => console.log("OK Pressed") },
-  ]
-);
+CrossPlatformAlert.alert("Title", "Message", [
+  { text: "Cancel", style: "cancel" },
+  { text: "OK", onPress: () => console.log("OK Pressed") },
+]);
 ```
 
 ### CrossPlatformShare

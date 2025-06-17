@@ -5,22 +5,24 @@ This document tracks the progress of making the CauLongApp compatible with web b
 ## Completed Features
 
 - ✅ WebDateTimePicker component to replace native DateTimePicker
+
   - Implemented in `src/components/web/WebDateTimePicker.tsx`
   - Replaced usage in `NewSessionScreen.tsx`
   - Replaced usage in `EditSessionScreen.tsx`
 
 - ✅ Cross-platform sharing functionality
+
   - Implemented `CrossPlatformShare` in `src/utils/crossPlatformShare.ts`
   - Updated `ShareButton.tsx` to use the cross-platform solution
 
 - ✅ Cross-platform alerts
+
   - Implemented `WebAlert` component for web in `src/components/web/WebAlert.tsx`
   - Created `CrossPlatformAlert` utility in `src/utils/crossPlatformAlert.ts`
   - Updated `SessionDetailScreen.tsx` to use the cross-platform solution
 
 - ✅ Platform detection utilities
   - Created `src/utils/platformUtils.ts` with helpers for platform detection
-  
 - ✅ Cross-platform icons
   - Created `WebIcon` component to replace Expo's Ionicons on web
   - Created unified `Icon` component that works across platforms
@@ -29,6 +31,7 @@ This document tracks the progress of making the CauLongApp compatible with web b
 ## Pending Features
 
 - ✅ Replace all Alert.alert usages with CrossPlatformAlert
+
   - ✅ NewSessionScreen.tsx
   - ✅ EditSessionScreen.tsx
   - ✅ PlayersScreen.tsx
@@ -36,10 +39,12 @@ This document tracks the progress of making the CauLongApp compatible with web b
   - ✅ SessionDetailScreen.tsx
 
 - ⬜ Implement web push notifications alternative
+
   - Research web push notification APIs
   - Create a cross-platform notification utility
 
 - ⬜ Improve UI responsiveness on web
+
   - Test on different screen sizes
   - Add responsive design adjustments for web
 

@@ -1,5 +1,12 @@
 import React from "react";
-import { TouchableOpacity, Text, StyleSheet, Share, View, Platform } from "react-native";
+import {
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+  Share,
+  View,
+  Platform,
+} from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Session } from "../../models/types";
 import { formatCurrency } from "../../utils/expenseUtils";
@@ -13,7 +20,10 @@ type WebShareButtonProps = {
   };
 };
 
-const WebShareButton = ({ session, calculatedExpenses }: WebShareButtonProps) => {
+const WebShareButton = ({
+  session,
+  calculatedExpenses,
+}: WebShareButtonProps) => {
   const prepareMessage = () => {
     const date = format(new Date(session.date), "dd/MM/yyyy");
     const time = format(new Date(session.date), "HH:mm");
@@ -85,7 +95,7 @@ const WebShareButton = ({ session, calculatedExpenses }: WebShareButtonProps) =>
     try {
       const { message, title } = prepareMessage();
 
-      if (Platform.OS === 'web') {
+      if (Platform.OS === "web") {
         // Web implementation using browser's Web Share API
         if (navigator.share) {
           await navigator.share({
@@ -95,13 +105,13 @@ const WebShareButton = ({ session, calculatedExpenses }: WebShareButtonProps) =>
         } else {
           // Fallback for browsers that don't support Web Share API
           // Create a temporary textarea to copy text to clipboard
-          const textarea = document.createElement('textarea');
+          const textarea = document.createElement("textarea");
           textarea.value = message;
           document.body.appendChild(textarea);
           textarea.select();
-          document.execCommand('copy');
+          document.execCommand("copy");
           document.body.removeChild(textarea);
-          alert('Nội dung đã được sao chép vào clipboard!');
+          alert("Nội dung đã được sao chép vào clipboard!");
         }
       } else {
         // Native implementation

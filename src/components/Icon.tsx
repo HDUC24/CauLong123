@@ -1,7 +1,7 @@
-import React from 'react';
-import Ionicons from '@expo/vector-icons/Ionicons';
-import { platformHelper } from '../utils/platformUtils';
-import WebIcon from './web/WebIcon';
+import React from "react";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import { platformHelper } from "../utils/platformUtils";
+import WebIcon from "./web/WebIcon";
 
 interface IconProps {
   name: string;
@@ -14,24 +14,12 @@ interface IconProps {
 const Icon: React.FC<IconProps> = ({ name, size = 24, color, style }) => {
   // Trên web, sử dụng WebIcon
   if (platformHelper.isWeb) {
-    return (
-      <WebIcon 
-        name={name} 
-        size={size} 
-        color={color} 
-        style={style}
-      />
-    );
+    return <WebIcon name={name} size={size} color={color} style={style} />;
   }
-  
+
   // Trên native, sử dụng Ionicons trực tiếp
   return (
-    <Ionicons 
-      name={name as any} 
-      size={size} 
-      color={color} 
-      style={style}
-    />
+    <Ionicons name={name as any} size={size} color={color} style={style} />
   );
 };
 

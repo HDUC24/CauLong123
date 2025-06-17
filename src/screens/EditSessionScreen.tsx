@@ -384,7 +384,8 @@ const EditSessionScreen = () => {
           <Text style={styles.dateText}>
             {format(date, "EEEE, dd/MM/yyyy", { locale: vi })}
           </Text>
-        </TouchableOpacity>        {showDatePicker && (
+        </TouchableOpacity>{" "}
+        {showDatePicker && (
           <WebDateTimePicker
             value={date}
             mode="date"
@@ -419,7 +420,8 @@ const EditSessionScreen = () => {
               {endTime ? format(endTime, "HH:mm") : "Chọn giờ kết thúc"}
             </Text>
           </TouchableOpacity>
-        </View>        {showEndTimePicker && (
+        </View>{" "}
+        {showEndTimePicker && (
           <WebDateTimePicker
             value={endTime || new Date()}
             mode="time"

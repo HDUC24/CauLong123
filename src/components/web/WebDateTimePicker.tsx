@@ -18,7 +18,7 @@ const WebDateTimePicker: React.FC<WebDateTimePickerProps> = ({
   // Trên web, sử dụng input HTML gốc
   if (Platform.OS === "web") {
     const inputType = mode === "date" ? "date" : "time";
-    
+
     // Định dạng giá trị cho input HTML
     const formatValue = () => {
       if (mode === "date") {
@@ -34,7 +34,7 @@ const WebDateTimePicker: React.FC<WebDateTimePickerProps> = ({
       const newValue = e.target.value;
       if (newValue) {
         let newDate: Date;
-        
+
         if (mode === "date") {
           newDate = new Date(newValue);
         } else {
@@ -43,8 +43,11 @@ const WebDateTimePicker: React.FC<WebDateTimePickerProps> = ({
           newDate.setHours(parseInt(hours, 10));
           newDate.setMinutes(parseInt(minutes, 10));
         }
-        
-        onChange({ type: "set", nativeEvent: { timestamp: newDate.getTime() } }, newDate);
+
+        onChange(
+          { type: "set", nativeEvent: { timestamp: newDate.getTime() } },
+          newDate
+        );
       }
     };
 
@@ -59,7 +62,7 @@ const WebDateTimePicker: React.FC<WebDateTimePickerProps> = ({
       </View>
     );
   }
-  
+
   // Trên thiết bị di động, sử dụng DateTimePicker gốc
   return (
     <DateTimePicker

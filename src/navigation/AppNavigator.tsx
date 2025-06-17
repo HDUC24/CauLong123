@@ -41,7 +41,8 @@ const MainTabNavigator = () => {
         tabBarStyle: {
           paddingBottom: 5,
           height: 60,
-        },        tabBarIcon: ({ focused, color, size }) => {
+        },
+        tabBarIcon: ({ focused, color, size }) => {
           let iconName: string;
 
           if (route.name === "Home") {

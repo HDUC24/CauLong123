@@ -330,7 +330,8 @@ const NewSessionScreen = () => {
             <Text style={styles.dateText}>
               {format(date, "dd/MM/yyyy", { locale: vi })}
             </Text>
-          </TouchableOpacity>          {showDatePicker && (
+          </TouchableOpacity>{" "}
+          {showDatePicker && (
             <WebDateTimePicker
               value={date}
               mode="date"
@@ -350,7 +351,8 @@ const NewSessionScreen = () => {
                 ? format(endTime, "HH:mm", { locale: vi })
                 : "Chưa chọn thời gian"}
             </Text>
-          </TouchableOpacity>          {showEndTimePicker && (
+          </TouchableOpacity>{" "}
+          {showEndTimePicker && (
             <WebDateTimePicker
               value={endTime || new Date()}
               mode="time"

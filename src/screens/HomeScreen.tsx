@@ -151,7 +151,8 @@ const HomeScreen = () => {
             <Text style={styles.modalTitle}>
               {" "}
               <Text>Lọc buổi đánh cầu</Text> git add . git commit -m "Mô tả thay
-            </Text>            <TouchableOpacity onPress={() => setIsFilterModalVisible(false)}>
+            </Text>{" "}
+            <TouchableOpacity onPress={() => setIsFilterModalVisible(false)}>
               <Icon name="close" size={24} color="#333" />
             </TouchableOpacity>
           </View>
@@ -348,7 +349,9 @@ const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.searchContainer}>
-        <View style={styles.searchBar}>          <Icon
+        <View style={styles.searchBar}>
+          {" "}
+          <Icon
             name="search"
             size={20}
             color="#666"
@@ -360,11 +363,13 @@ const HomeScreen = () => {
             value={searchText}
             onChangeText={setSearchText}
           />
-          {searchText ? (            <TouchableOpacity onPress={() => setSearchText("")}>
+          {searchText ? (
+            <TouchableOpacity onPress={() => setSearchText("")}>
               <Icon name="close-circle" size={18} color="#666" />
             </TouchableOpacity>
           ) : null}
-        </View>        <TouchableOpacity
+        </View>{" "}
+        <TouchableOpacity
           style={styles.filterButton}
           onPress={() => setIsFilterModalVisible(true)}
         >
