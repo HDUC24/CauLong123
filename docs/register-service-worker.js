@@ -1,1 +1,1 @@
-"serviceWorker"in navigator&&"production"===process.env.NODE_ENV&&window.addEventListener("load",(()=>{navigator.serviceWorker.register("/service-worker.js").then((e=>{console.log("SW registered: ",e)})).catch((e=>{console.error("SW registration failed: ",e)}))}));
+"serviceWorker"in navigator&&"production"===process.env.NODE_ENV&&window.addEventListener("load",(()=>{navigator.serviceWorker.register("/CauLong123/service-worker.js").then((e=>{console.log("SW registered: ",e)})).catch((e=>{console.error("SW registration failed: ",e)}))}));
