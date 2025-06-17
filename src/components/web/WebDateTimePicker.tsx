@@ -28,26 +28,38 @@ const WebDateTimePicker: React.FC<WebDateTimePickerProps> = ({
           value.getMinutes()
         ).padStart(2, "0")}`;
       }
-    };
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    };    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const newValue = e.target.value;
       if (newValue) {
         let newDate: Date;
 
         if (mode === "date") {
+          // Đảm bảo giữ lại giờ và phút từ giá trị hiện tại
           newDate = new Date(newValue);
+          if (!isNaN(newDate.getTime())) {
+            newDate.setHours(value.getHours(), value.getMinutes(), 0, 0);
+          } else {
+            newDate = new Date(value); // Sử dụng lại giá trị cũ nếu parse thất bại
+            console.warn("Không thể parse ngày từ input:", newValue);
+          }
         } else {
           const [hours, minutes] = newValue.split(":");
           newDate = new Date(value);
-          newDate.setHours(parseInt(hours, 10));
-          newDate.setMinutes(parseInt(minutes, 10));
+          if (hours !== undefined && minutes !== undefined) {
+            newDate.setHours(parseInt(hours, 10) || 0);
+            newDate.setMinutes(parseInt(minutes, 10) || 0);
+          }
         }
 
-        onChange(
-          { type: "set", nativeEvent: { timestamp: newDate.getTime() } },
-          newDate
-        );
+        // Kiểm tra xem date có hợp lệ không
+        if (!isNaN(newDate.getTime())) {
+          onChange(
+            { type: "set", nativeEvent: { timestamp: newDate.getTime() } },
+            newDate
+          );
+        } else {
+          console.warn("Tạo date không hợp lệ từ input:", newValue);
+        }
       }
     };
 

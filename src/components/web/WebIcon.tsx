@@ -12,6 +12,8 @@ const iconMap: Record<string, string> = {
   "stats-chart": "📊",
   "stats-chart-outline": "📊",
   "help-outline": "❓",
+  list: "📋",
+  "list-outline": "📋",
 
   // Action icons
   add: "➕",
@@ -24,6 +26,9 @@ const iconMap: Record<string, string> = {
   "create-outline": "✏️",
   trash: "🗑️",
   "trash-outline": "🗑️",
+  remove: "➖",
+  "remove-circle": "⊖",
+  "remove-circle-outline": "⊖",
   checkmark: "✓",
   "checkmark-circle": "✅",
   "checkmark-circle-outline": "⭕",
