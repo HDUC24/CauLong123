@@ -1,17 +1,47 @@
 import React, { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { View, Text, StyleSheet, Image, ActivityIndicator } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  ActivityIndicator,
+  Platform,
+} from "react-native";
 import AppNavigator from "./src/navigation/AppNavigator";
 
 // Font Awesome setup
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fas } from '@fortawesome/free-solid-svg-icons';
-import { far } from '@fortawesome/free-regular-svg-icons';
-import { fab } from '@fortawesome/free-brands-svg-icons';
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+import { far } from "@fortawesome/free-regular-svg-icons";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import { dom } from "@fortawesome/fontawesome-svg-core";
 
 // Add all icons to the library so we can use them
 library.add(fas, far, fab);
+
+// Configure Font Awesome for web rendering
+if (Platform.OS === "web") {
+  // Tránh lỗi với DOM và cấu hình đúng cách cho web
+  dom.watch();
+
+  // Thêm CSS để đảm bảo icon được hiển thị đúng
+  const style = document.createElement("style");
+  style.type = "text/css";
+  style.appendChild(
+    document.createTextNode(`
+    .svg-inline--fa {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      overflow: visible;
+      vertical-align: -0.125em;
+    }
+  `)
+  );
+  document.head.appendChild(style);
+}
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);

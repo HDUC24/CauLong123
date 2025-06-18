@@ -1,6 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { View, Platform } from "react-native";
 import Icon from "../components/Icon";
 
 import HomeScreen from "../screens/HomeScreen";
@@ -54,7 +55,22 @@ const MainTabNavigator = () => {
           } else {
             iconName = "help-outline";
           }
-          return <Icon name={iconName} size={size} color={color} />;
+
+          // Important: Xác định kích thước rõ ràng và tăng kích thước biểu tượng
+          const iconSize = Platform.OS === "web" ? size * 1.2 : size;
+
+          return (
+            <View
+              style={{
+                width: size,
+                height: size,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Icon name={iconName} size={iconSize} color={color} />
+            </View>
+          );
         },
       })}
     >

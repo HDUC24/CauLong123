@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/static/js/main.b2a4a39b.js",
+    "main.js": "/static/js/main.ab13fce5.js",
     "static/js/49.6b0745a1.chunk.js": "/static/js/49.6b0745a1.chunk.js",
-    "static/js/620.69684abe.js": "/static/js/620.69684abe.js",
+    "static/js/76.3bc22516.js": "/static/js/76.3bc22516.js",
     "static/media/Ionicons.ttf": "/static/media/Ionicons.9b6b1954a5eb6efeaf11.ttf",
     "icon.png": "/pwa-icon-maskable-512.png",
     "static/media/icon.png": "/static/media/icon.608e4d9dafd9fd3d79c3.png",
@@ -11,12 +11,12 @@
     "favicon.png": "/favicon-32.png",
     "manifest.json": "/manifest.json",
     "serve.json": "/serve.json",
-    "main.b2a4a39b.js.map": "/static/js/main.b2a4a39b.js.map",
+    "main.ab13fce5.js.map": "/static/js/main.ab13fce5.js.map",
     "49.6b0745a1.chunk.js.map": "/static/js/49.6b0745a1.chunk.js.map",
-    "620.69684abe.js.map": "/static/js/620.69684abe.js.map"
+    "76.3bc22516.js.map": "/static/js/76.3bc22516.js.map"
   },
   "entrypoints": [
-    "static/js/620.69684abe.js",
-    "static/js/main.b2a4a39b.js"
+    "static/js/76.3bc22516.js",
+    "static/js/main.ab13fce5.js"
   ]
 }
