@@ -4,6 +4,15 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { View, Text, StyleSheet, Image, ActivityIndicator } from "react-native";
 import AppNavigator from "./src/navigation/AppNavigator";
 
+// Font Awesome setup
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+
+// Add all icons to the library so we can use them
+library.add(fas, far, fab);
+
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
 

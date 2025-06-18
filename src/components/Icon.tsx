@@ -2,6 +2,7 @@ import React from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { platformHelper } from "../utils/platformUtils";
 import WebIcon from "./web/WebIcon";
+import WebIconFA from "./web/WebIconFA";
 
 interface IconProps {
   name: string;
@@ -11,10 +12,9 @@ interface IconProps {
 }
 
 // Trả về component icon phù hợp dựa trên nền tảng
-const Icon: React.FC<IconProps> = ({ name, size = 24, color, style }) => {
-  // Trên web, sử dụng WebIcon
+const Icon: React.FC<IconProps> = ({ name, size = 24, color, style }) => {  // Trên web, sử dụng WebIconFA (Font Awesome)
   if (platformHelper.isWeb) {
-    return <WebIcon name={name} size={size} color={color} style={style} />;
+    return <WebIconFA name={name} size={size} color={color} style={style} />;
   }
 
   // Trên native, sử dụng Ionicons trực tiếp
