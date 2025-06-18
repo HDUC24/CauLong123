@@ -90,10 +90,40 @@ export const WebAlertManager = {
       return;
     }
 
-    // For web platform
-    const alertContainer = document.createElement("div");
-    alertContainer.id = "web-alert-container";
-    document.body.appendChild(alertContainer);
+    // For web platform, use browser's native alert as a fallback
+    try {
+      // Fallback native browser alert when in simpler scenarios
+      if (!buttons || buttons.length <= 1) {
+        window.alert(`${title}\n${message || ''}`);
+        if (buttons && buttons[0] && buttons[0].onPress) {
+          setTimeout(() => buttons[0].onPress?.(), 0);
+        }
+        return;
+      }
+
+      // Nếu có nhiều nút, sử dụng confirm hoặc alert tùy trường hợp
+      if (buttons.length === 2) {
+        const isConfirm = buttons.some(btn => btn.style === 'cancel');
+        if (isConfirm) {
+          const confirmResult = window.confirm(`${title}\n${message || ''}`);
+          
+          // Tìm nút cancel và nút confirm
+          const cancelButton = buttons.find(btn => btn.style === 'cancel');
+          const confirmButton = buttons.find(btn => btn.style !== 'cancel');
+          
+          if (confirmResult && confirmButton?.onPress) {
+            setTimeout(() => confirmButton.onPress?.(), 0);
+          } else if (!confirmResult && cancelButton?.onPress) {
+            setTimeout(() => cancelButton.onPress?.(), 0);
+          }
+          return;
+        }
+      }
+
+      // Nếu trường hợp phức tạp hơn, dùng div để chứa alert
+      const alertContainer = document.createElement("div");
+      alertContainer.id = "web-alert-container";
+      document.body.appendChild(alertContainer);
 
     const destroyAlert = () => {
       if (alertContainer && document.body.contains(alertContainer)) {

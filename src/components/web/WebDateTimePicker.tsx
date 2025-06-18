@@ -28,7 +28,8 @@ const WebDateTimePicker: React.FC<WebDateTimePickerProps> = ({
           value.getMinutes()
         ).padStart(2, "0")}`;
       }
-    };    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    };
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const newValue = e.target.value;
       if (newValue) {
         let newDate: Date;
